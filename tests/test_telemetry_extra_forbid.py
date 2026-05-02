@@ -7,7 +7,7 @@ explicit allowlist + justification. Hypothesis exercises arbitrary unknown keys.
 from __future__ import annotations
 
 import pytest
-from hypothesis import given, settings
+from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
 from pydantic import ValidationError
 
@@ -26,9 +26,17 @@ ALLOWED_FIELDS: frozenset[str] = frozenset({
 
 @given(
     extra_key=st.text(min_size=1, max_size=64).filter(lambda k: k not in ALLOWED_FIELDS),
-    extra_value=st.one_of(st.text(), st.integers(), st.floats(allow_nan=False, allow_infinity=False)),
+    extra_value=st.one_of(
+        st.text(),
+        st.integers(),
+        st.floats(allow_nan=False, allow_infinity=False),
+    ),
 )
-@settings(max_examples=50, deadline=None)
+@settings(
+    max_examples=50,
+    deadline=None,
+    suppress_health_check=[HealthCheck.function_scoped_fixture],
+)
 def test_unknown_key_is_rejected(valid_telemetry_payload, extra_key, extra_value):
     """Any field name not in the allowlist must raise extra_forbidden."""
     payload = {**valid_telemetry_payload, extra_key: extra_value}

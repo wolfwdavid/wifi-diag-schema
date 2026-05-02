@@ -53,3 +53,9 @@ Tag a release as `vX.Y.Z`; the `publish.yml` workflow runs OIDC Trusted Publishi
 ## License
 
 Apache-2.0.
+
+## Release process
+
+Tag a release as `vX.Y.Z`; the `publish.yml` GitHub Action builds wheel + sdist with `uv build`, smoke-installs the wheel into a fresh venv, and publishes to PyPI via OIDC Trusted Publishing — no API tokens are stored anywhere.
+
+A one-time manual step is required: register `wifi-diag-schema` as a Trusted Publisher at <https://pypi.org/manage/account/publishing/> pointing at the GitHub repo + the `publish.yml` workflow filename. Until that registration is in place, the publish step will fail at the final action.

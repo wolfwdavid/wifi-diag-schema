@@ -5,6 +5,7 @@ Adding a field requires updating tests/test_telemetry_field_allowlist.py
 AND _justifications.py (Pitfall 1).
 """
 from wifi_diag_schema.enums import (
+    OS,
     AuthEventClass,
     BssidMode,
     DhcpEventClass,
@@ -12,7 +13,6 @@ from wifi_diag_schema.enums import (
     DriverState,
     MacRandomizationState,
     NetworkMode,
-    OS,
 )
 from wifi_diag_schema.telemetry import PingContinuity, TelemetryFrame
 from wifi_diag_schema.verdict import EvidenceItem, Verdict

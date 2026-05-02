@@ -4,7 +4,7 @@ Round-tripped through Anthropic Structured Outputs via Verdict.model_json_schema
 """
 from __future__ import annotations
 
-from typing import Annotated
+from typing import Annotated, Any
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -27,7 +27,7 @@ class EvidenceItem(BaseModel):
     claim: Annotated[str, Field(
         description="Plain-English claim grounded in the cited telemetry value.",
     )]
-    attribution: Annotated[dict | None, Field(
+    attribution: Annotated[dict[str, Any] | None, Field(
         default=None,
         description=(
             "Reserved for v2 SHAP attribution payloads (CLASS-V2-02). "

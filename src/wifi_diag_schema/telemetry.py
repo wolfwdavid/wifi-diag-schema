@@ -12,13 +12,13 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from . import _justifications as J
 from .enums import (
+    OS,
     AuthEventClass,
     BssidMode,
     DhcpEventClass,
     DriverState,
     MacRandomizationState,
     NetworkMode,
-    OS,
 )
 
 
@@ -97,7 +97,10 @@ class TelemetryFrame(BaseModel):
         description="why-allowlisted: 2.4/5/6 GHz interference inference.",
     )]
     ping_continuity: Annotated[PingContinuity, Field(
-        description="why-allowlisted: outbound ICMP continuity stats are the dominant continuity signal.",
+        description=(
+            "why-allowlisted: outbound ICMP continuity stats are the dominant "
+            "continuity signal."
+        ),
     )]
     latency_jitter_ms: Annotated[float | None, Field(
         ge=0,

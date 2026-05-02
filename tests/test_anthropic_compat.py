@@ -17,8 +17,14 @@ def test_verdict_schema_is_closed_object():
 def test_verdict_schema_has_required_properties():
     schema = Verdict.model_json_schema()
     properties = schema["properties"]
-    for required_key in ("top_class", "confidence", "top_k", "headline", "suggested_fix", "evidence"):
-        assert required_key in properties, f"Verdict schema missing property: {required_key}"
+    required_keys = (
+        "top_class", "confidence", "top_k",
+        "headline", "suggested_fix", "evidence",
+    )
+    for required_key in required_keys:
+        assert required_key in properties, (
+            f"Verdict schema missing property: {required_key}"
+        )
 
 
 def test_verdict_top_class_is_enum():
