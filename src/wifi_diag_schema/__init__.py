@@ -14,18 +14,31 @@ from wifi_diag_schema.enums import (
     MacRandomizationState,
     NetworkMode,
 )
-from wifi_diag_schema.telemetry import PingContinuity, TelemetryFrame
+from wifi_diag_schema.handshake import (
+    HandshakeFrame,
+    IncompatibleSchemaError,
+    check_compatibility,
+    make_handshake,
+)
+from wifi_diag_schema.telemetry import (
+    PingContinuity,
+    TelemetryFrame,
+    TelemetryFrameLenient,
+)
 from wifi_diag_schema.verdict import EvidenceItem, Verdict
 from wifi_diag_schema.version import SCHEMA_VERSION
-
-# NOTE: HandshakeFrame, IncompatibleSchemaError, check_compatibility added by plan 01-02.
 
 __all__ = [
     "SCHEMA_VERSION",
     "TelemetryFrame",
+    "TelemetryFrameLenient",
     "PingContinuity",
     "Verdict",
     "EvidenceItem",
+    "HandshakeFrame",
+    "IncompatibleSchemaError",
+    "check_compatibility",
+    "make_handshake",
     "OS",
     "NetworkMode",
     "AuthEventClass",

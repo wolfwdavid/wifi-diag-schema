@@ -159,3 +159,22 @@ class TelemetryFrame(BaseModel):
             "(short for fast events, long for slow events). Surfaced as a feature."
         ),
     )]
+
+
+class TelemetryFrameLenient(TelemetryFrame):
+    """Inbound-only variant for minor-mismatch sessions (Pitfall 6 mitigation).
+
+    Use on the RECEIVE side when `check_compatibility` returned `'minor_drift'`.
+    The strict `TelemetryFrame` is still used for outbound construction; this
+    lenient variant lets the receiver gracefully ignore fields a newer sender
+    has added in a minor-version bump.
+
+    Subclassing TelemetryFrame and overriding `model_config` is the documented
+    Pydantic v2 pattern for variant configs without re-declaring fields.
+    """
+
+    model_config = ConfigDict(
+        extra="ignore",
+        frozen=True,
+        str_strip_whitespace=True,
+    )

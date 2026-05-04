@@ -9,4 +9,5 @@ All notable changes to `wifi-diag-schema` are documented here. The format follow
 - Initial schema.
 - `TelemetryFrame` allowlist (18 core fields + 1 `bssid_mode` + 1 `window_ms` = 20 total per D-01).
 - `Verdict` + `EvidenceItem` (Phase 3 LLM-narrator output schema; Anthropic Structured Outputs compatible).
-- `HandshakeFrame` (added in plan 01-02).
+- `HandshakeFrame` + `check_compatibility()` + `IncompatibleSchemaError` + `make_handshake()` (D-05; Phase 5 transport reuses this for the agent ↔ Space SSE channel).
+- `TelemetryFrameLenient` (Pitfall 6 mitigation: inbound-side `extra='ignore'` parser for minor-version drift; the strict `TelemetryFrame` remains the outbound construction model).
