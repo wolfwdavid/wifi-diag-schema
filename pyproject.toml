@@ -1,6 +1,6 @@
 [project]
 name = "wifi-diag-schema"
-version = "1.0.0"
+version = "1.1.0"
 description = "Wire-format Pydantic schema for AI Internet Diagnostic. The field allowlist is the privacy contract."
 readme = "README.md"
 license = { text = "Apache-2.0" }

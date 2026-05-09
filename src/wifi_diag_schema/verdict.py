@@ -63,7 +63,11 @@ class Verdict(BaseModel):
         ),
     )]
     headline: Annotated[str, Field(
-        description="Plain-English diagnosis (LLM-04).",
+        max_length=140,
+        description=(
+            "Plain-English diagnosis (LLM-04). max_length=140 per D-VERDICT-06 "
+            "so Anthropic Structured Outputs honors the IT-ticket export ceiling."
+        ),
     )]
     suggested_fix: Annotated[str, Field(
         description="Plain-English remediation (LLM-04).",
