@@ -23,3 +23,11 @@ def test_display_names_has_all_classes() -> None:
 
 def test_display_names_keys_match_canonical_order() -> None:
     assert list(DISPLAY_NAMES.keys()) == list(get_args(DisconnectClass))
+
+
+def test_display_names_includes_unknown_at_v1_2_0() -> None:
+    """SCHEMA-01 / D-11: 'unknown' present with long-explicit phrasing."""
+    from wifi_diag_schema.enums import DISPLAY_NAMES
+    assert DISPLAY_NAMES.get("unknown") == "Insufficient evidence for confident attribution", (
+        f"DISPLAY_NAMES['unknown'] must be the locked D-11 long-explicit phrasing; got: {DISPLAY_NAMES.get('unknown')!r}"
+    )

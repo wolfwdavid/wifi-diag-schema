@@ -75,3 +75,11 @@ class Verdict(BaseModel):
     evidence: Annotated[list[EvidenceItem], Field(
         description="Citations grounded in TelemetryFrame paths (LLM-02, LLM-03).",
     )]
+    counter_evidence: Annotated[list[EvidenceItem], Field(
+        default_factory=list,
+        description=(
+            "Citations referencing telemetry that argues AGAINST the verdict "
+            "(Phase 12 LLM-01 counter-evidence). Defaults to empty list so "
+            "v1.1.0 Verdict payloads deserialize cleanly under v1.2.0 (SCHEMA-02 / D-09)."
+        ),
+    )]

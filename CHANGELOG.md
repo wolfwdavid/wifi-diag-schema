@@ -2,6 +2,19 @@
 
 All notable changes to `wifi-diag-schema` are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to strict [Semantic Versioning](https://semver.org/) per the project's D-05 decision (major = breaking, minor = additive, patch = doc-only).
 
+## [1.2.0] — 2026-05-19
+
+### Added
+
+- `DisconnectClass.unknown` (SCHEMA-01 / D-10) — 11th member, last position, for OOD abstention sentinel. Consumed by Phase 9 OOD classifier.
+- `Verdict.counter_evidence: list[EvidenceItem] = []` (SCHEMA-02 / D-09) — defaults to empty list via `default_factory=list`. Consumed by Phase 12 narrator counter-evidence.
+- `DISPLAY_NAMES["unknown"] = "Insufficient evidence for confident attribution"` (D-11) — long-explicit phrasing signalling OOD abstention semantics.
+
+### Compatibility
+
+- Backwards-compatible additive bump. Serialized v1.1.0 `Verdict` payloads deserialize cleanly under v1.2.0 (proven by `tests/test_schema_backwards_compat.py`); the absent `counter_evidence` field adopts its `default_factory=list` default.
+- All `extra="forbid"` and `frozen=True` config preserved.
+
 ## [1.0.0] — Unreleased
 
 ### Added
