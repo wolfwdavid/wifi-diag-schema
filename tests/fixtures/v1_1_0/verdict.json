@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.1.0",
+  "top_class": "dns_resolver_fail",
+  "confidence": 0.91,
+  "top_k": [
+    [
+      "dns_resolver_fail",
+      0.91
+    ],
+    [
+      "isp_upstream_fail",
+      0.05
+    ],
+    [
+      "captive_portal_expiry",
+      0.04
+    ]
+  ],
+  "headline": "DNS resolver returned NXDOMAIN for example.com (3 retries).",
+  "suggested_fix": "Switch DNS to 1.1.1.1 or 8.8.8.8 temporarily; verify SERVFAIL clears.",
+  "evidence": [
+    {
+      "telemetry_path": "dns_resolution_ms",
+      "claim": "DNS lookup took 5000ms (timeout cap).",
+      "attribution": null
+    }
+  ]
+}

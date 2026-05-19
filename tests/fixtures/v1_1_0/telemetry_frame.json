@@ -1,0 +1,27 @@
+{
+  "timestamp": 1730000000.0,
+  "os": "windows",
+  "network_mode": "enterprise",
+  "rssi_dbm": -62,
+  "bssid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "bssid_mode": "hashed",
+  "channel": 36,
+  "ping_continuity": {
+    "window_ms": 1000,
+    "avg_rtt_ms": 18.5,
+    "packet_loss_pct": 0.0,
+    "jitter_ms": 1.2
+  },
+  "latency_jitter_ms": 1.2,
+  "dns_resolution_ms": 14.0,
+  "dhcp_event_class": "none",
+  "auth_event_class": "none",
+  "captive_portal_detected": false,
+  "mac_randomization_state": "off",
+  "driver_state": "normal",
+  "per_packet_retry_count": 2,
+  "rts_cts_rate": 0.05,
+  "beacon_rssi_dbm": -64,
+  "neighbor_ap_count_5ghz": 5,
+  "window_ms": 30000
+}
