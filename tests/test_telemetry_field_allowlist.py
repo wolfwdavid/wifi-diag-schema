@@ -7,36 +7,39 @@ the schema source without updating this set fails CI — this is the explicit
 When you add a field intentionally, update BOTH this set AND the
 `why-allowlisted` justification in `_justifications.py` (Pitfall 1 contract).
 """
+
 from __future__ import annotations
 
 from wifi_diag_schema.telemetry import TelemetryFrame
 
-EXPECTED_FIELDS: frozenset[str] = frozenset({
-    # D-02 core 14
-    "timestamp",
-    "os",
-    "network_mode",
-    "rssi_dbm",
-    "bssid",
-    "channel",
-    "ping_continuity",
-    "latency_jitter_ms",
-    "dns_resolution_ms",
-    "dhcp_event_class",
-    "auth_event_class",
-    "captive_portal_detected",
-    "mac_randomization_state",
-    "driver_state",
-    # D-01 extended 4
-    "per_packet_retry_count",
-    "rts_cts_rate",
-    "beacon_rssi_dbm",
-    "neighbor_ap_count_5ghz",
-    # D-03 / RESEARCH Open Question 2
-    "bssid_mode",
-    # D-04
-    "window_ms",
-})
+EXPECTED_FIELDS: frozenset[str] = frozenset(
+    {
+        # D-02 core 14
+        "timestamp",
+        "os",
+        "network_mode",
+        "rssi_dbm",
+        "bssid",
+        "channel",
+        "ping_continuity",
+        "latency_jitter_ms",
+        "dns_resolution_ms",
+        "dhcp_event_class",
+        "auth_event_class",
+        "captive_portal_detected",
+        "mac_randomization_state",
+        "driver_state",
+        # D-01 extended 4
+        "per_packet_retry_count",
+        "rts_cts_rate",
+        "beacon_rssi_dbm",
+        "neighbor_ap_count_5ghz",
+        # D-03 / RESEARCH Open Question 2
+        "bssid_mode",
+        # D-04
+        "window_ms",
+    }
+)
 
 
 def test_field_count_is_twenty():

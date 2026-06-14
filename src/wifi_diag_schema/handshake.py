@@ -8,6 +8,7 @@ Strict SemVer:
 
 Phase 5 transport reuses this exact handshake on the agent <-> Space SSE channel.
 """
+
 from __future__ import annotations
 
 import warnings

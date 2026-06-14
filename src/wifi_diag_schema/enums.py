@@ -4,6 +4,7 @@ Per CONTEXT D-Discretion + RESEARCH Pattern 2: Literal over Enum gives cleaner
 JSON Schema for Anthropic Structured Outputs (just an `enum` array, no $defs
 indirection).
 """
+
 from __future__ import annotations
 
 from typing import Literal
@@ -52,7 +53,7 @@ DisconnectClass = Literal[
     "driver_power_save_wake",
     "rf_sticky_client",
     "isp_upstream_fail",
-    "unknown",   # SCHEMA-01: OOD abstention sentinel (D-10 last-position)
+    "unknown",  # SCHEMA-01: OOD abstention sentinel (D-10 last-position)
 ]
 
 # Phase 3 D-VERDICT-05: plain-English display labels for the verdict UI.
@@ -71,5 +72,5 @@ DISPLAY_NAMES: dict[DisconnectClass, str] = {
     "driver_power_save_wake": "Wi-Fi driver power-save wake bug",
     "rf_sticky_client": "Sticky client on weak access point",
     "isp_upstream_fail": "Upstream ISP failure",
-    "unknown": "Insufficient evidence for confident attribution",   # SCHEMA-01 / D-11
+    "unknown": "Insufficient evidence for confident attribution",  # SCHEMA-01 / D-11
 }

@@ -6,6 +6,7 @@ OS-source + confidence per platform so reviewers can audit the privacy lens.
 When you add a field to TelemetryFrame, you MUST also add a constant here
 documenting why the field is allowlisted (Pitfall 1).
 """
+
 from __future__ import annotations
 
 PER_PACKET_RETRY_COUNT = (

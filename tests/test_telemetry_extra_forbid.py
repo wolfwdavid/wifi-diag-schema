@@ -4,6 +4,7 @@ The schema source IS the privacy contract. Any unknown key on TelemetryFrame
 must surface as a `extra_forbidden` ValidationError — adding a field requires
 explicit allowlist + justification. Hypothesis exercises arbitrary unknown keys.
 """
+
 from __future__ import annotations
 
 import pytest
@@ -13,15 +14,30 @@ from pydantic import ValidationError
 
 from wifi_diag_schema.telemetry import TelemetryFrame
 
-ALLOWED_FIELDS: frozenset[str] = frozenset({
-    "timestamp", "os", "network_mode", "rssi_dbm", "bssid", "bssid_mode",
-    "channel", "ping_continuity", "latency_jitter_ms", "dns_resolution_ms",
-    "dhcp_event_class", "auth_event_class", "captive_portal_detected",
-    "mac_randomization_state", "driver_state",
-    "per_packet_retry_count", "rts_cts_rate", "beacon_rssi_dbm",
-    "neighbor_ap_count_5ghz",
-    "window_ms",
-})
+ALLOWED_FIELDS: frozenset[str] = frozenset(
+    {
+        "timestamp",
+        "os",
+        "network_mode",
+        "rssi_dbm",
+        "bssid",
+        "bssid_mode",
+        "channel",
+        "ping_continuity",
+        "latency_jitter_ms",
+        "dns_resolution_ms",
+        "dhcp_event_class",
+        "auth_event_class",
+        "captive_portal_detected",
+        "mac_randomization_state",
+        "driver_state",
+        "per_packet_retry_count",
+        "rts_cts_rate",
+        "beacon_rssi_dbm",
+        "neighbor_ap_count_5ghz",
+        "window_ms",
+    }
+)
 
 
 @given(

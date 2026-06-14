@@ -5,6 +5,7 @@ Single source of truth: the constant in ``version.py`` and the version under
 pyproject; runtime code reads SCHEMA_VERSION; drift between the two would
 silently ship a v1.1.0 wheel reporting v1.0.0 (or vice versa).
 """
+
 from __future__ import annotations
 
 import tomllib

@@ -4,6 +4,7 @@ Anthropic Structured Outputs respects Pydantic ``Field(max_length=...)``
 constraints, so a 140-char ceiling enforced in the schema is enforced at
 generation time. Casual visitors and IT-ticket exports both render cleanly.
 """
+
 from __future__ import annotations
 
 import pytest

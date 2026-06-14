@@ -4,6 +4,7 @@ The field allowlist on TelemetryFrame IS the privacy contract.
 Adding a field requires updating tests/test_telemetry_field_allowlist.py
 AND _justifications.py (Pitfall 1).
 """
+
 from wifi_diag_schema.enums import (
     DISPLAY_NAMES,
     OS,

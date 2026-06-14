@@ -4,6 +4,7 @@ The `valid_telemetry_payload` fixture returns a dict with all 20 schema fields
 populated with valid values. Default uses `bssid_mode="hashed"` per D-03 (raw mode
 is opt-in, default OFF) so the privacy-friendly path is what tests exercise by default.
 """
+
 from __future__ import annotations
 
 import pytest
@@ -22,7 +23,7 @@ def valid_telemetry_payload() -> dict:
         "os": "windows",
         "network_mode": "enterprise",
         "rssi_dbm": -62,
-        "bssid": "a" * 64,                # 64-char SHA-256 hex
+        "bssid": "a" * 64,  # 64-char SHA-256 hex
         "channel": 36,
         "ping_continuity": {
             "window_ms": 1000,

@@ -5,6 +5,7 @@ Compatibility matrix:
 - minor difference   -> "minor_drift" + UserWarning
 - major difference   -> raise IncompatibleSchemaError with upgrade-link UX
 """
+
 from __future__ import annotations
 
 import warnings
@@ -53,11 +54,13 @@ def test_major_mismatch_raises():
 def test_handshake_frame_extra_forbid():
     """Handshake itself is extra='forbid' so a future major breaks cleanly."""
     with pytest.raises(ValidationError):
-        HandshakeFrame.model_validate({
-            "frame_type": "handshake",
-            "schema_version": "1.0.0",
-            "rogue_field": "x",
-        })
+        HandshakeFrame.model_validate(
+            {
+                "frame_type": "handshake",
+                "schema_version": "1.0.0",
+                "rogue_field": "x",
+            }
+        )
 
 
 def test_telemetry_frame_lenient_ignores_unknown(valid_telemetry_payload):

@@ -2,6 +2,7 @@
 
 The `bssid_mode` sibling field disambiguates which format is in use.
 """
+
 from __future__ import annotations
 
 import pytest
